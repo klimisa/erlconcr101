@@ -20,3 +20,12 @@ sender(Pid) ->
   Pid ! {first, "FirstString"},
   Pid ! {second, "SecondString"},
   Pid ! {first, "ThirdString"}.
+
+server10(C) ->
+  X = 1,
+  server10(C+X).
+
+taken([], N) -> [];
+taken([], _) -> server10(N);
+taken([_|Xs]) -> Xs.
+
